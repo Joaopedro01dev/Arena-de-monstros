@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <ctime>
 #include <cstdlib>
 #include "Creature.h"
 #include "Hero.h"
@@ -8,6 +9,8 @@
 using namespace std;
 
 int main(){
+    srand(static_cast<unsigned int>(time(nullptr)));
+
     cout << "Para iniciarmos, digites as informacoes sobre o Heroi\n";
     string nome;
     int vida, ataque;

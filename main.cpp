@@ -51,14 +51,17 @@ int main(){
 
             if(monstro->estaVivo()){
                 int acaoAleatoria = rand() % 2;
+                int danoMonstro;
 
                 if(acaoAleatoria == 0){
-                    int danoMonstro = monstro->realizarAtaque();
+                    danoMonstro = monstro->realizarAtaque();
                     jogador.receberDano(danoMonstro);
                     cout << "O " << monstro->getNome() << " ataca voce causando " << danoMonstro << " de dano!\n";
                 }
                 else{
-                    cout << "Sorte a sua! O " << monstro->getNome() << " esta te encarando e preparando o proximo golpe!\n";
+                    danoMonstro = monstro->realizarAtaque() * 1.5;
+                    jogador.receberDano(danoMonstro);
+                    cout << "Que azar! O " << monstro->getNome() << " atacou voce com dano extra!\n";
                 }
             }
         }

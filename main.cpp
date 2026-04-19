@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cstdlib>
 #include "Creature.h"
 #include "Hero.h"
 #include "Ogre.h"
@@ -41,16 +42,24 @@ int main(){
                 int dano = jogador.realizarAtaque();
                 monstro->receberDano(dano);
 
-                cout << "Voce ataca o " << monstro->getNome() << " causando " << dano << " de dano!\n\n";
+                cout << "Voce ataca o " << monstro->getNome() << " causando " << dano << " de dano!\n";
             }
             else{
                 jogador.setDefesa(true);
-                cout << "Voce levanta seu escudo! Dano reduzido pela metade!\n\n";
+                cout << "Voce levanta seu escudo!\n";
             }
 
             if(monstro->estaVivo()){
-                int danoMonstro = monstro->realizarAtaque();
-                jogador.receberDano(danoMonstro);
+                int acaoAleatoria = rand() % 2;
+
+                if(acaoAleatoria == 0){
+                    int danoMonstro = monstro->realizarAtaque();
+                    jogador.receberDano(danoMonstro);
+                    cout << "O " << monstro->getNome() << " ataca voce causando " << danoMonstro << " de dano!\n";
+                }
+                else{
+                    cout << "Sorte a sua! O " << monstro->getNome() << " esta te encarando e preparando o proximo golpe!\n";
+                }
             }
         }
 

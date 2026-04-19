@@ -1,6 +1,6 @@
 CXX = g++
 CXXFLAGS = -Wall -std=c++11
-TARGET = jogo_combate
+TARGET = jogo
 
 OBJS = main.o Hero.o Goblin.o Ogre.o
 
@@ -21,6 +21,3 @@ Ogre.o: Ogre.cpp Ogre.h Creature.h
 
 clean:
 	rm -f *.o $(TARGET)
-
-run: $(TARGET)
-	./$(TARGET)
